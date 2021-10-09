@@ -1,7 +1,12 @@
-import React from 'react'
-import { isElementOfType } from 'react-dom/test-utils';
+import React, { useState, useEffect } from 'react'
 
 export const GifGrid = ({ category }) => {
+
+  const [count, setCount] = useState(0);
+
+useEffect( () => {
+  getGifs();
+}, [])
 
   const getGifs = async() => {
     const url = 'https://api.giphy.com/v1/gifs/search?q=Rick+and+Morty&limit=10&api_key=hOmAaays0WNNFOI08op0lAqXQnaf7n49'
@@ -12,14 +17,14 @@ export const GifGrid = ({ category }) => {
       return {
         id: img.id,
         title: img.title,
-        url: img.images.downsized_medium.url
+        url: img.images?.downsized_medium.url
       }
     })
 
     console.log(gifs);
   }
 
-  getGifs();
+  // getGifs();
 
   return (
     <div>
