@@ -14,7 +14,7 @@ export const AddCategory = ({ setCategories }) => {
     // Previene el comportamiento del navegador por defecto. En este caso, refrescarse cuando ocurre el submit.
     e.preventDefault();
     if (inputValue.trim().length > 2) {
-      setCategories(categories => [...categories, inputValue]);
+      setCategories(categories => [inputValue, ...categories ]);
       setInputValue('');
 
     }
