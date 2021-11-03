@@ -1,9 +1,9 @@
-import React from 'react'
-import { useState } from 'react/cjs/react.development'
+import React from 'react';
+import { useState } from 'react/cjs/react.development';
 import PropTypes from 'prop-types';
 
 export const AddCategory = ({ setCategories }) => {
-
+  
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -16,13 +16,8 @@ export const AddCategory = ({ setCategories }) => {
     if (inputValue.trim().length > 2) {
       setCategories(categories => [inputValue, ...categories ]);
       setInputValue('');
-
     }
-
-
-
   }
-
 
   return (
     <form onSubmit={ handleSubmit }>
